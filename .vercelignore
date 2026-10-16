@@ -1,0 +1,14 @@
+agents/
+tools/
+test/
+shot-*.png
+*.md
+.git/
+**/.studio/
+**/.claude/
+**/node_modules/
+.env*
+**/.env*
+*.pem
+*.key
+

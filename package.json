@@ -1,0 +1,14 @@
+{
+  "name": "pr-budget-guardian",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PR Budget Guardian — a financial controller for AI-generated pull requests. Zero-dependency Node.js demo.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server/index.js",
+    "start:live": "node server/index.js --live",
+    "selftest": "node server/index.js --selftest",
+    "matrix": "node test/matrix.js",
+    "test:hosting": "node test/hosting.js"
+  }
+}

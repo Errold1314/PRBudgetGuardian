@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>PR Budget Guardian — demo</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div>
+    <h1>PR Budget Guardian</h1>
+    <p class="tagline">A financial controller for AI-generated pull requests</p>
+  </div>
+  <div class="controls">
+    <label class="speed">Policy
+      <select id="mode">
+        <option value="guardian" selected>Guardian</option>
+        <option value="naive">Naive</option>
+      </select>
+    </label>
+    <label class="speed">Speed
+      <select id="speed">
+        <option value="1" selected>1&times;</option>
+        <option value="2">2&times;</option>
+        <option value="4">4&times;</option>
+      </select>
+    </label>
+    <button id="replay" type="button">Replay demo</button>
+  </div>
+</header>
+
+<section class="prbar" aria-label="Pull request">
+  <span class="pr-id mono" id="prId">PR</span>
+  <span class="pr-title" id="prTitle">Waiting for the first event&hellip;</span>
+  <span class="pr-meta mono" id="prMeta"></span>
+  <span class="status mono" id="status" data-status="idle">idle</span>
+</section>
+
+<section class="rule-block" aria-label="Balance rule">
+  <div class="rule-head">
+    <h2>Balance rule</h2>
+    <div class="legend" id="legend"></div>
+  </div>
+  <div class="ruler" id="ruler">
+    <div class="ticks" aria-hidden="true"></div>
+    <div class="seg seg-spent" id="segSpent"></div>
+    <div class="seg seg-free" id="segFree"></div>
+    <div class="seg seg-refund" id="segRefund"></div>
+    <div class="seg seg-reserved" id="segReserved"></div>
+    <div class="reserve-marker" id="reserveMarker" aria-hidden="true">
+      <span class="marker-tag">held for final validation</span>
+    </div>
+  </div>
+  <p class="rule-note" id="ruleNote">The envelope is $0.100. $0.040 of it is held back for final validation and cannot be spent on retries or diagnosis.</p>
+</section>
+
+<main class="grid">
+  <section class="panel" aria-label="Purchase ledger">
+    <h2>Purchase ledger</h2>
+    <div class="table-wrap">
+      <table class="ledger">
+        <thead>
+          <tr><th>State</th><th>Suite</th><th>Provider</th><th class="num">Cost</th><th>Note</th></tr>
+        </thead>
+        <tbody id="ledgerBody"></tbody>
+      </table>
+    </div>
+    <p class="empty" id="ledgerEmpty">Purchases and refusals are stamped here as the demo runs.</p>
+  </section>
+
+  <aside class="panel" aria-label="Statement">
+    <h2>Statement</h2>
+    <dl class="figures" id="figures"></dl>
+
+    <h3>Avoided cost <span class="muted">estimated, conservative</span></h3>
+    <ul class="avoided" id="avoidedList"></ul>
+    <p class="baseline" id="baseline"></p>
+
+    <div class="step">
+      <div class="step-bar"><span id="stepBar"></span></div>
+      <p class="step-label mono" id="stepLabel">Waiting to start&hellip;</p>
+    </div>
+  </aside>
+</main>
+
+<section class="panel log-panel" aria-label="Decision log">
+  <h2>Decision log</h2>
+  <ol class="log" id="log"></ol>
+  <p class="empty" id="logEmpty">Every decision and every payment lands here with its reason.</p>
+</section>
+
+<script src="/app.js"></script>
+</body>
+</html>

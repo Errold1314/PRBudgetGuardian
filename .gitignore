@@ -1,0 +1,14 @@
+node_modules/
+.vercel/
+**/.studio/
+**/.claude/
+.env*
+**/.env*
+*.pem
+*.key
+*.der
+*.der.b64
+**/quote.json
+*.log
+deployment-result.json
+
